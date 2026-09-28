@@ -1,0 +1,693 @@
+{
+  "scenario": "2load",
+  "J1_yard": [
+    {
+      "row": 9,
+      "tier": 1,
+      "bay": 46,
+      "type": "load",
+      "id": 1001
+    },
+    {
+      "row": 6,
+      "tier": 1,
+      "bay": 7,
+      "type": "load",
+      "id": 1002
+    },
+    {
+      "row": 6,
+      "tier": 1,
+      "bay": 33,
+      "type": "load",
+      "id": 1003
+    },
+    {
+      "row": 9,
+      "tier": 0,
+      "bay": 15,
+      "type": "load",
+      "id": 1004
+    },
+    {
+      "row": 6,
+      "tier": 1,
+      "bay": 46,
+      "type": "load",
+      "id": 1005
+    },
+    {
+      "row": 6,
+      "tier": 3,
+      "bay": 34,
+      "type": "load",
+      "id": 1006
+    },
+    {
+      "row": 9,
+      "tier": 3,
+      "bay": 30,
+      "type": "load",
+      "id": 1007
+    },
+    {
+      "row": 11,
+      "tier": 1,
+      "bay": 14,
+      "type": "load",
+      "id": 1008
+    },
+    {
+      "row": 8,
+      "tier": 0,
+      "bay": 36,
+      "type": "load",
+      "id": 1009
+    },
+    {
+      "row": 6,
+      "tier": 1,
+      "bay": 17,
+      "type": "load",
+      "id": 1010
+    },
+    {
+      "row": 7,
+      "tier": 2,
+      "bay": 41,
+      "type": "load",
+      "id": 1011
+    },
+    {
+      "row": 6,
+      "tier": 2,
+      "bay": 49,
+      "type": "load",
+      "id": 1012
+    },
+    {
+      "row": 0,
+      "tier": 3,
+      "bay": 2,
+      "type": "load",
+      "id": 1013
+    },
+    {
+      "row": 12,
+      "tier": 0,
+      "bay": 13,
+      "type": "load",
+      "id": 1014
+    },
+    {
+      "row": 11,
+      "tier": 4,
+      "bay": 42,
+      "type": "load",
+      "id": 1015
+    },
+    {
+      "row": 6,
+      "tier": 1,
+      "bay": 44,
+      "type": "load",
+      "id": 1016
+    },
+    {
+      "row": 0,
+      "tier": 0,
+      "bay": 6,
+      "type": "load",
+      "id": 1017
+    },
+    {
+      "row": 6,
+      "tier": 0,
+      "bay": 40,
+      "type": "load",
+      "id": 1018
+    },
+    {
+      "row": 6,
+      "tier": 5,
+      "bay": 3,
+      "type": "load",
+      "id": 1019
+    },
+    {
+      "row": 0,
+      "tier": 1,
+      "bay": 14,
+      "type": "load",
+      "id": 1020
+    },
+    {
+      "row": 8,
+      "tier": 4,
+      "bay": 39,
+      "type": "load",
+      "id": 1021
+    },
+    {
+      "row": 9,
+      "tier": 3,
+      "bay": 24,
+      "type": "load",
+      "id": 1022
+    },
+    {
+      "row": 9,
+      "tier": 0,
+      "bay": 33,
+      "type": "load",
+      "id": 1023
+    },
+    {
+      "row": 9,
+      "tier": 2,
+      "bay": 7,
+      "type": "load",
+      "id": 1024
+    },
+    {
+      "row": 9,
+      "tier": 2,
+      "bay": 0,
+      "type": "load",
+      "id": 1025
+    }
+  ],
+  "J3_yard": [
+    {
+      "row": 10,
+      "tier": 5,
+      "bay": 36,
+      "type": "load",
+      "id": 3001
+    },
+    {
+      "row": 9,
+      "tier": 1,
+      "bay": 1,
+      "type": "load",
+      "id": 3002
+    },
+    {
+      "row": 12,
+      "tier": 3,
+      "bay": 43,
+      "type": "load",
+      "id": 3003
+    },
+    {
+      "row": 12,
+      "tier": 4,
+      "bay": 2,
+      "type": "load",
+      "id": 3004
+    },
+    {
+      "row": 0,
+      "tier": 1,
+      "bay": 38,
+      "type": "load",
+      "id": 3005
+    },
+    {
+      "row": 0,
+      "tier": 3,
+      "bay": 47,
+      "type": "load",
+      "id": 3006
+    },
+    {
+      "row": 11,
+      "tier": 1,
+      "bay": 49,
+      "type": "load",
+      "id": 3007
+    },
+    {
+      "row": 9,
+      "tier": 5,
+      "bay": 6,
+      "type": "load",
+      "id": 3008
+    },
+    {
+      "row": 0,
+      "tier": 1,
+      "bay": 11,
+      "type": "load",
+      "id": 3009
+    },
+    {
+      "row": 8,
+      "tier": 4,
+      "bay": 0,
+      "type": "load",
+      "id": 3010
+    },
+    {
+      "row": 8,
+      "tier": 4,
+      "bay": 37,
+      "type": "load",
+      "id": 3011
+    },
+    {
+      "row": 8,
+      "tier": 3,
+      "bay": 27,
+      "type": "load",
+      "id": 3012
+    },
+    {
+      "row": 7,
+      "tier": 2,
+      "bay": 21,
+      "type": "load",
+      "id": 3013
+    },
+    {
+      "row": 7,
+      "tier": 2,
+      "bay": 16,
+      "type": "load",
+      "id": 3014
+    },
+    {
+      "row": 7,
+      "tier": 4,
+      "bay": 46,
+      "type": "load",
+      "id": 3015
+    }
+  ],
+  "J1_truck": [
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2166,
+      "id": 5001
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1010,
+      "id": 5002
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1417,
+      "id": 5003
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1241,
+      "id": 5004
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2289,
+      "id": 5005
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1182,
+      "id": 5006
+    }
+  ],
+  "J3_truck": [
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2269,
+      "id": 7001
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1377,
+      "id": 7002
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1003,
+      "id": 7003
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1069,
+      "id": 7004
+    }
+  ],
+  "K_aqc": [
+    {
+      "id": 1,
+      "initial_row": 0,
+      "initial_bay": 9
+    },
+    {
+      "id": 2,
+      "initial_row": 0,
+      "initial_bay": 19
+    },
+    {
+      "id": 3,
+      "initial_row": 0,
+      "initial_bay": 29
+    },
+    {
+      "id": 4,
+      "initial_row": 0,
+      "initial_bay": 39
+    }
+  ],
+  "U_1": [
+    1,
+    3
+  ],
+  "C_1": [
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 40
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 14
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 32
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 37
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 42
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 31
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 2
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 21
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 7
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 30
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 5
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 29
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 33
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 17
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 13
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 39
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 11
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 10
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 18
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 44
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 25
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 26
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 15
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 43
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 45
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 12
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 0
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 9
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 49
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 28
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 19
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 27
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 6
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 1
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 38
+    }
+  ],
+  "C_3": [
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 26
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 22
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 40
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 17
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 21
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 34
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 43
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 35
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 38
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 13
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 33
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 48
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 45
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 9
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 41
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 1
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 42
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 31
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 10
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 8
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 3
+    }
+  ],
+  "_meta": {
+    "scenario": "2load",
+    "n1_J1_yard": 25,
+    "n2_J3_yard": 15,
+    "n3_J1_truck": 6,
+    "n4_J3_truck": 4,
+    "num_aqc": 4,
+    "num_train1": 35,
+    "num_train3": 21,
+    "n_tasks": 50,
+    "seed": 542
+  }
+}

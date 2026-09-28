@@ -1,0 +1,857 @@
+{
+  "scenario": "2load",
+  "J1_yard": [
+    {
+      "row": 10,
+      "tier": 3,
+      "bay": 43,
+      "type": "load",
+      "id": 1001
+    },
+    {
+      "row": 0,
+      "tier": 3,
+      "bay": 46,
+      "type": "load",
+      "id": 1002
+    },
+    {
+      "row": 6,
+      "tier": 2,
+      "bay": 27,
+      "type": "load",
+      "id": 1003
+    },
+    {
+      "row": 0,
+      "tier": 1,
+      "bay": 22,
+      "type": "load",
+      "id": 1004
+    },
+    {
+      "row": 8,
+      "tier": 0,
+      "bay": 35,
+      "type": "load",
+      "id": 1005
+    },
+    {
+      "row": 8,
+      "tier": 0,
+      "bay": 5,
+      "type": "load",
+      "id": 1006
+    },
+    {
+      "row": 0,
+      "tier": 0,
+      "bay": 36,
+      "type": "load",
+      "id": 1007
+    },
+    {
+      "row": 12,
+      "tier": 0,
+      "bay": 45,
+      "type": "load",
+      "id": 1008
+    },
+    {
+      "row": 8,
+      "tier": 5,
+      "bay": 26,
+      "type": "load",
+      "id": 1009
+    },
+    {
+      "row": 11,
+      "tier": 2,
+      "bay": 10,
+      "type": "load",
+      "id": 1010
+    },
+    {
+      "row": 8,
+      "tier": 5,
+      "bay": 19,
+      "type": "load",
+      "id": 1011
+    },
+    {
+      "row": 6,
+      "tier": 1,
+      "bay": 9,
+      "type": "load",
+      "id": 1012
+    },
+    {
+      "row": 6,
+      "tier": 3,
+      "bay": 30,
+      "type": "load",
+      "id": 1013
+    },
+    {
+      "row": 11,
+      "tier": 3,
+      "bay": 0,
+      "type": "load",
+      "id": 1014
+    },
+    {
+      "row": 12,
+      "tier": 3,
+      "bay": 30,
+      "type": "load",
+      "id": 1015
+    },
+    {
+      "row": 9,
+      "tier": 3,
+      "bay": 44,
+      "type": "load",
+      "id": 1016
+    },
+    {
+      "row": 10,
+      "tier": 5,
+      "bay": 4,
+      "type": "load",
+      "id": 1017
+    },
+    {
+      "row": 10,
+      "tier": 2,
+      "bay": 47,
+      "type": "load",
+      "id": 1018
+    },
+    {
+      "row": 6,
+      "tier": 2,
+      "bay": 1,
+      "type": "load",
+      "id": 1019
+    },
+    {
+      "row": 11,
+      "tier": 3,
+      "bay": 20,
+      "type": "load",
+      "id": 1020
+    }
+  ],
+  "J3_yard": [
+    {
+      "row": 10,
+      "tier": 5,
+      "bay": 29,
+      "type": "load",
+      "id": 3001
+    },
+    {
+      "row": 9,
+      "tier": 4,
+      "bay": 7,
+      "type": "load",
+      "id": 3002
+    },
+    {
+      "row": 7,
+      "tier": 0,
+      "bay": 29,
+      "type": "load",
+      "id": 3003
+    },
+    {
+      "row": 11,
+      "tier": 3,
+      "bay": 26,
+      "type": "load",
+      "id": 3004
+    },
+    {
+      "row": 0,
+      "tier": 4,
+      "bay": 0,
+      "type": "load",
+      "id": 3005
+    },
+    {
+      "row": 6,
+      "tier": 4,
+      "bay": 6,
+      "type": "load",
+      "id": 3006
+    },
+    {
+      "row": 12,
+      "tier": 3,
+      "bay": 44,
+      "type": "load",
+      "id": 3007
+    },
+    {
+      "row": 0,
+      "tier": 5,
+      "bay": 48,
+      "type": "load",
+      "id": 3008
+    },
+    {
+      "row": 0,
+      "tier": 2,
+      "bay": 39,
+      "type": "load",
+      "id": 3009
+    },
+    {
+      "row": 6,
+      "tier": 3,
+      "bay": 41,
+      "type": "load",
+      "id": 3010
+    },
+    {
+      "row": 6,
+      "tier": 0,
+      "bay": 39,
+      "type": "load",
+      "id": 3011
+    },
+    {
+      "row": 0,
+      "tier": 5,
+      "bay": 13,
+      "type": "load",
+      "id": 3012
+    },
+    {
+      "row": 0,
+      "tier": 4,
+      "bay": 20,
+      "type": "load",
+      "id": 3013
+    },
+    {
+      "row": 12,
+      "tier": 4,
+      "bay": 26,
+      "type": "load",
+      "id": 3014
+    },
+    {
+      "row": 10,
+      "tier": 2,
+      "bay": 20,
+      "type": "load",
+      "id": 3015
+    },
+    {
+      "row": 6,
+      "tier": 1,
+      "bay": 36,
+      "type": "load",
+      "id": 3016
+    },
+    {
+      "row": 0,
+      "tier": 2,
+      "bay": 28,
+      "type": "load",
+      "id": 3017
+    },
+    {
+      "row": 11,
+      "tier": 5,
+      "bay": 33,
+      "type": "load",
+      "id": 3018
+    },
+    {
+      "row": 6,
+      "tier": 2,
+      "bay": 42,
+      "type": "load",
+      "id": 3019
+    },
+    {
+      "row": 0,
+      "tier": 2,
+      "bay": 47,
+      "type": "load",
+      "id": 3020
+    },
+    {
+      "row": 10,
+      "tier": 1,
+      "bay": 8,
+      "type": "load",
+      "id": 3021
+    },
+    {
+      "row": 12,
+      "tier": 3,
+      "bay": 36,
+      "type": "load",
+      "id": 3022
+    },
+    {
+      "row": 9,
+      "tier": 4,
+      "bay": 12,
+      "type": "load",
+      "id": 3023
+    },
+    {
+      "row": 11,
+      "tier": 4,
+      "bay": 11,
+      "type": "load",
+      "id": 3024
+    },
+    {
+      "row": 9,
+      "tier": 2,
+      "bay": 15,
+      "type": "load",
+      "id": 3025
+    },
+    {
+      "row": 8,
+      "tier": 4,
+      "bay": 27,
+      "type": "load",
+      "id": 3026
+    },
+    {
+      "row": 10,
+      "tier": 2,
+      "bay": 10,
+      "type": "load",
+      "id": 3027
+    },
+    {
+      "row": 0,
+      "tier": 1,
+      "bay": 12,
+      "type": "load",
+      "id": 3028
+    },
+    {
+      "row": 12,
+      "tier": 5,
+      "bay": 3,
+      "type": "load",
+      "id": 3029
+    },
+    {
+      "row": 0,
+      "tier": 1,
+      "bay": 41,
+      "type": "load",
+      "id": 3030
+    }
+  ],
+  "J1_truck": [
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2234,
+      "id": 5001
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2562,
+      "id": 5002
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1290,
+      "id": 5003
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1816,
+      "id": 5004
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1992,
+      "id": 5005
+    }
+  ],
+  "J3_truck": [
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1623,
+      "id": 7001
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2149,
+      "id": 7002
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1743,
+      "id": 7003
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1243,
+      "id": 7004
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1523,
+      "id": 7005
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 1899,
+      "id": 7006
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2691,
+      "id": 7007
+    },
+    {
+      "row": -4,
+      "tier": 0,
+      "bay": 0,
+      "type": "load",
+      "arrival_time": 2881,
+      "id": 7008
+    }
+  ],
+  "K_aqc": [
+    {
+      "id": 1,
+      "initial_row": 0,
+      "initial_bay": 9
+    },
+    {
+      "id": 2,
+      "initial_row": 0,
+      "initial_bay": 19
+    },
+    {
+      "id": 3,
+      "initial_row": 0,
+      "initial_bay": 29
+    },
+    {
+      "id": 4,
+      "initial_row": 0,
+      "initial_bay": 39
+    }
+  ],
+  "U_1": [
+    1,
+    3
+  ],
+  "C_1": [
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 13
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 24
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 1
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 28
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 38
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 22
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 16
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 31
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 45
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 3
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 46
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 33
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 41
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 26
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 11
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 0
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 8
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 35
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 23
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 15
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 34
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 36
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 44
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 10
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 30
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 6
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 9
+    },
+    {
+      "row": 4,
+      "tier": 0,
+      "bay": 17
+    }
+  ],
+  "C_3": [
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 20
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 39
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 1
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 37
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 22
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 42
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 33
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 26
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 49
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 19
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 34
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 11
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 29
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 32
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 16
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 41
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 17
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 27
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 30
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 13
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 14
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 35
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 28
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 21
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 3
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 4
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 18
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 45
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 12
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 43
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 2
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 8
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 38
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 0
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 31
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 36
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 9
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 10
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 23
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 5
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 44
+    },
+    {
+      "row": 2,
+      "tier": 0,
+      "bay": 48
+    }
+  ],
+  "_meta": {
+    "scenario": "2load",
+    "n1_J1_yard": 20,
+    "n2_J3_yard": 30,
+    "n3_J1_truck": 5,
+    "n4_J3_truck": 8,
+    "num_aqc": 4,
+    "num_train1": 28,
+    "num_train3": 42,
+    "n_tasks": 63,
+    "seed": 10442
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "out_dir": "data\\instances_combined_val_aqc4",
+  "base_config": "train",
+  "scenarios": [
+    "1load_1unload",
+    "2load",
+    "2unload"
+  ],
+  "config_indices": "all",
+  "n_per_config": 1,
+  "seed_base": 20042,
+  "total": 24,
+  "by_scenario": {
+    "1load_1unload": 8,
+    "2load": 8,
+    "2unload": 8
+  },
+  "note": "validation 实例为独立 seed 重新生成；不是从 train/test 切分。"
+}
