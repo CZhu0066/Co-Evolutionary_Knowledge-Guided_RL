@@ -1,0 +1,580 @@
+\appendices
+\section{Notation and Constraints}
+\label{app:notation}
+% 表格开始
+\begin{table}[!t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{Other Notation}
+\label{tab:other_para}
+\begin{tabularx}{\columnwidth}{
+  >{\raggedright\arraybackslash}p{1.9cm}
+  >{\raggedright\arraybackslash}X
+}
+\toprule
+\textbf{Notation} & \textbf{Description} \\
+\midrule
+
+% ==================== Sets ====================
+\multicolumn{2}{l}{\textbf{Sets}} \\
+$C$
+& Set of stacking columns in the temporary storage area. \\
+$G_{c}$
+& Set of candidate yard storage slots in stacking column $c$. \\
+$G$
+& Set of candidate yard slots, $G=\bigcup_{c\in C}G_{c}$. \\
+\addlinespace
+
+% ==================== Indices ====================
+\multicolumn{2}{l}{\textbf{Indices}} \\
+$c$
+& Index of stacking columns, $c\in C$. \\
+$g,q$
+& Indices of yard storage slots, $g,q\in G$. \\
+\addlinespace
+
+% ==================== Parameters ====================
+\multicolumn{2}{l}{\textbf{Parameters}} \\
+$D_{c}$
+& Initial height of stacking column $c$. \\
+$\overline{D}_{c}$
+& Maximum height of stacking column $c$. \\
+$a_{gq}$
+& 1 if slot $g$ is immediately above slot $q$; 0 otherwise. \\
+$\Gamma_{AYC}$
+& Minimum safety distance between AYCs. \\
+$p_{r}^{Rx},p_{r}^{Ry},p_{r}^{Rz}$
+& Row, tier, and bay coordinates of railcar $r$. \\
+$p_{g}^{Gx},p_{g}^{Gy},p_{g}^{Gz}$
+& Row, tier, and bay coordinates of yard slot $g$. \\
+\addlinespace
+
+% ==================== Decision variables ====================
+\multicolumn{2}{l}{\textbf{Decision variables}} \\
+$\delta_{ir}^{R}$
+& 1 if task $i$ is assigned to railcar $r$; 0 otherwise. \\
+$\delta_{ig}^{G}$
+& 1 if task $i$ is assigned to yard slot $g$; 0 otherwise. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+%本文涉及的其他参数如表\label{tab:para}所示，关于任务分配、资源占用、堆存可行性、设备协同、安全运行以及变量取值范围等约束如下所示。  
+The remaining parameters used in this formulation are summarized in Table~\ref{tab:other_para}. 
+The constraints for task assignment, resource occupancy, storage feasibility, equipment coordination, operational safety, and variable domains are presented as follows.
+%%%%%%%%%%%%%%%%%%%%%  资源唯一性和目的地 %%%%%%%%%%%%%%%%%%%%%%%%%%
+Equation~\ref{eq:task_ayc_assignment} ensures that each container-handling task is assigned to exactly one AYC.
+\begin{equation}
+\label{eq:task_ayc_assignment}
+\sum_{k\in K}\delta_{ik}^{AYC}=1
+\qquad
+\forall i\in J
+\end{equation}
+
+Equations~\ref{eq:loading_task_railcar_assignment}--\ref{eq:railcar_occupancy} assign each loading task to exactly one railcar of the corresponding train and restrict each railcar to accommodating at most one container.
+\begin{equation}
+\label{eq:loading_task_railcar_assignment}
+\sum_{r\in R_u}\delta_{ir}^{R}=1
+\qquad
+\forall u\in U^{L},\;
+\forall i\in
+J_u^{Y\rightarrow U}\cup J_u^{T\rightarrow U}
+\end{equation}
+\begin{equation}
+\label{eq:railcar_occupancy}
+\sum_{i\in J_u^{Y\rightarrow U}\cup J_u^{T\rightarrow U}}
+\delta_{ir}^{R}
+\leq 1
+\qquad
+\forall u\in U^{L},\;
+\forall r\in R_u
+\end{equation}
+
+Equations~\ref{eq:unloading_task_slot_assignment}--\ref{eq:yard_slot_occupancy} assign each train-to-yard unloading task to exactly one candidate storage slot and prevent multiple unloaded containers from occupying the same slot.
+\begin{equation}
+\label{eq:unloading_task_slot_assignment}
+\sum_{g\in G}\delta_{ig}^{G}=1
+\qquad
+\forall u\in U^{U},\;
+\forall i\in J_u^{U\rightarrow Y}
+\end{equation}
+\begin{equation}
+\label{eq:yard_slot_occupancy}
+\sum_{u\in U^{U}}
+\sum_{i\in J_u^{U\rightarrow Y}}
+\delta_{ig}^{G}
+\leq 1
+\qquad
+\forall g\in G
+\end{equation}
+
+Equations~\ref{eq:truck_to_train_transfer_assignment}--\ref{eq:train_to_truck_transfer_assignment} require each truck-to-train loading task and train-to-truck unloading task to be assigned to exactly one transfer point.
+\begin{equation}
+\label{eq:truck_to_train_transfer_assignment}
+\sum_{b\in B}\delta_{ib}^{B}=1
+\qquad
+\forall u\in U^{L},\;
+\forall i\in J_u^{T\rightarrow U}
+\end{equation}
+\begin{equation}
+\label{eq:train_to_truck_transfer_assignment}
+\sum_{b\in B}\delta_{ib}^{B}=1
+\qquad
+\forall u\in U^{U},\;
+\forall i\in J_u^{U\rightarrow T}
+\end{equation}
+
+Equations~\ref{eq:loading_task_final_position}--\ref{eq:truck_unloading_final_position} determine the final coordinates of each task according to its assigned destination, namely, a railcar, a yard storage slot, or a transfer point.
+\begin{equation}
+\label{eq:loading_task_final_position}
+\begin{gathered}
+\left(p_i^{fx},p_i^{fy},p_i^{fz}\right)=\sum_{r\in R_u}\delta_{ir}^{R}\left(p_r^{Rx},p_r^{Ry},p_r^{Rz}\right)\\ \forall u\in U^{L},\;\forall i\in J_u^{Y\rightarrow U}\cup J_u^{T\rightarrow U}
+\end{gathered}
+\end{equation}
+\begin{equation}
+\label{eq:yard_unloading_final_position}
+\begin{gathered}
+\left(p_i^{fx},p_i^{fy},p_i^{fz}\right)=\sum_{g\in G}\delta_{ig}^{G}\left(p_g^{Gx},p_g^{Gy},p_g^{Gz}\right)\\ \forall u\in U^{U},\;\forall i\in J_u^{U\rightarrow Y}
+\end{gathered}
+\end{equation}
+\begin{equation}
+\label{eq:truck_unloading_final_position}
+\begin{gathered}
+\left(p_i^{fx},p_i^{fy},p_i^{fz}\right)=\sum_{b\in B}\delta_{ib}^{B}\left(p_b^{Bx},p_b^{By},p_b^{Bz}\right)\\ \forall u\in U^{U},\;\forall i\in J_u^{U\rightarrow T}
+\end{gathered}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%堆垛稳定性%%%%%%%%%%%%%%%%%%%%%%
+Equations~\ref{eq:stack_support}--\ref{eq:stack_capacity} ensure the physical feasibility of the storage slots assigned to train-to-yard unloading tasks. Specifically, Equation~\ref{eq:stack_support} requires an upper slot to be used only when its immediately lower slot is occupied, thereby enforcing bottom-up stacking, while Equation~\ref{eq:stack_capacity} limits the final height of each stacking column to its maximum allowable capacity. 
+\begin{equation}
+\label{eq:stack_support}
+\begin{gathered}
+\sum_{u\in U^{U}}
+\sum_{i\in J_u^{U\rightarrow Y}}
+\delta_{ig}^{G}
+\leq
+\sum_{u\in U^{U}}
+\sum_{i\in J_u^{U\rightarrow Y}}
+\delta_{iq}^{G}+
+M(1-a_{gq})
+\\
+\forall c\in C,\;
+\forall g,q\in G_c
+\end{gathered}
+\end{equation}
+\begin{equation}
+\label{eq:stack_capacity}
+D_c+
+\sum_{g\in G_c}
+\sum_{u\in U^{U}}
+\sum_{i\in J_u^{U\rightarrow Y}}
+\delta_{ig}^{G}
+\leq
+\overline{D}_c
+\quad
+\forall c\in C
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%% AYC 顺序和时间约束 %%%%%%%%%%%%%%%%%%%%%%
+Equations~\ref{eq:ayc_sequence_assignment_1}--\ref{eq:ayc_sequence_assignment_3} establish the processing order of tasks assigned to the same AYC. A precedence relationship can be activated only when both tasks are assigned to that AYC, in which case exactly one of the two possible processing orders must be selected.
+\begin{equation}
+\label{eq:ayc_sequence_assignment_1}
+\begin{gathered}
+\rho_{ijk}\leq\delta_{ik}^{AYC},\rho_{ijk}\leq\delta_{jk}^{AYC}\\ \forall i,j\in J,\;i\neq j,\;\forall k\in K
+\end{gathered}
+\end{equation}
+\begin{equation}
+\label{eq:ayc_sequence_assignment_2}
+\begin{gathered}
+\rho_{ijk}+\rho_{jik}\geq\delta_{ik}^{AYC}+\delta_{jk}^{AYC}-1\\ \forall i,j\in J,\;i\neq j,\;\forall k\in K
+\end{gathered}
+\end{equation}
+\begin{equation}
+\label{eq:ayc_sequence_assignment_3}
+\rho_{ijk}+\rho_{jik}\leq1\quad \forall i,j\in J,\;i\neq j,\;\forall k\in K
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%  AYC的安全距离约束  %%%%%%%%%%%%%%%%%%%%%%%%%%
+Multiple AYCs operating in the shared handling area must preserve their left-to-right order and maintain the minimum safety clearance. The AYCs are indexed along the bay direction, with AYC $k$ located to the left of AYC $l$ for $k<l$. Equations~\ref{eq:ayc_temporal_relation_1}--\ref{eq:ayc_temporal_exclusivity} identify whether two tasks overlap in time, where $o_{ij}^{AYC}=o_{ji}^{AYC}=0$ indicates overlapping processing intervals. For overlapping tasks assigned to AYCs $k$ and $l$, Equation~\ref{eq:ayc_safety_clearance} separates their operating paths by at least $\Gamma_{AYC}$, thereby preventing collisions and path crossing.
+\begin{equation}
+\label{eq:ayc_temporal_relation_1}
+f_i-s_j\leq M\left(1-o_{ij}^{AYC}\right)
+\quad
+\forall i,j\in J,\;i\neq j
+\end{equation}
+\begin{equation}
+\label{eq:ayc_temporal_relation_2}
+s_j-f_i\leq Mo_{ij}^{AYC}
+\quad
+\forall i,j\in J,\;i\neq j
+\end{equation}
+\begin{equation}
+\label{eq:ayc_temporal_exclusivity}
+o_{ij}^{AYC}+o_{ji}^{AYC}\leq1
+\quad
+\forall i,j\in J,\;i<j
+\end{equation}
+\begin{equation}
+\label{eq:ayc_safety_clearance}
+\begin{split}
+d_1\max\left\{p_i^{0z},p_i^{fz}\right\}+\Gamma_{AYC}
+\leq d_1\min\left\{p_j^{0z},p_j^{fz}\right\}\\+M\left(2-\delta_{ik}^{AYC}-\delta_{jl}^{AYC}+o_{ij}^{AYC}+o_{ji}^{AYC}\right)
+\\
+\forall i,j\in J,\;i\neq j,\quad
+\forall k,l\in K,\;k<l
+\end{split}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  变量范围  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%分配、排序及时间顺序变量为二元变量；完成、加工、等待及传输点计时变量为非负连续变量；最终任务坐标为非负整数。其定义域规定如下：
+Equation~\ref{eq:binary_variable_domains} defines the assignment, sequencing, and temporal-order variables as binary variables. Equation~\ref{eq:continuous_variable_domains} requires all completion, processing, waiting, and transfer-point timing variables to be nonnegative and continuous, while Equation~\ref{eq:coordinate_variable_domains} restricts the final task coordinates to nonnegative integers.
+\begin{equation}
+\label{eq:binary_variable_domains}
+\begin{aligned}
+&\delta_{ik}^{AYC}\in\{0,1\}
+&&\forall i\in J,\;\forall k\in K\\
+&\delta_{ir}^{R}\in\{0,1\}
+&&\forall u\in U^{L},\;\forall i\in J_u^{Y\rightarrow U}\cup J_u^{T\rightarrow U},\;\forall r\in R_u\\
+&\delta_{ib}^{B}\in\{0,1\}
+&&\forall i\in J_{u}^{T\rightarrow U}
+\cup
+J_{u}^{U\rightarrow T},\;\forall b\in B\\
+&\delta_{ig}^{G}\in\{0,1\}
+&&\forall u\in U^{U},\;\forall i\in J_u^{U\rightarrow Y},\;\forall g\in G\\
+&\rho_{ijk}\in\{0,1\}
+&&\forall i,j\in J,\;i\neq j,\;\forall k\in K,\;\forall b\in B\\
+&\chi_{ijb}\in\{0,1\}
+&&\forall i,j\in J,\;i\neq j,\;\forall b\in B\\
+&o_{ij}^{AYC}\in\{0,1\}
+&&\forall i,j\in J,\;i\neq j
+\end{aligned}
+\raisetag{3\baselineskip}
+\end{equation}
+\begin{equation}
+\label{eq:continuous_variable_domains}
+\begin{aligned}
+&F_u\geq0
+&&\forall u\in U\\
+&s_i,f_i\geq0
+&&\forall i\in J\\
+&w_i,w_i^{B},w_i^{AYC}\geq0
+&&\forall u\in U^{L},\;\forall i\in J_u^{T\rightarrow U}\\
+&t_{ib}^{arr}\geq0
+&&\forall u\in U^{L},\;\forall i\in J_u^{T\rightarrow U},\;\forall b\in B\\
+&t_{ib}^{srv}\geq0
+&&\forall i\in J_{u}^{U\rightarrow T},\;\forall b\in B
+\end{aligned}
+\end{equation}
+\begin{equation}
+\label{eq:coordinate_variable_domains}
+p_i^{fx},p_i^{fy},p_i^{fz}\in\mathbb{Z}_{\geq0}
+\qquad
+\forall i\in J
+\end{equation}
+
+\section{Additional Experimental Settings}
+\label{app:table}
+% 中文：表中列出AYC、集装箱、列车、集卡以及目标函数的主要参数。
+\begin{table}[!t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Physical and operational parameter settings}
+\label{tab:physical_parameters}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\columnwidth}{
+@{}
+>{\centering\arraybackslash}p{1.6cm}
+>{\raggedright\arraybackslash}X
+>{\centering\arraybackslash}p{1.5cm}
+>{\centering\arraybackslash}p{0.8cm}
+@{}}
+\toprule
+Category & Parameter & Value & Unit \\
+\midrule
+
+\multirow{5}{*}{AYC}
+& AYC height $h_{\mathrm{AYC}}$                         & 20    & m \\
+& Gantry travel speed $v_{\mathrm{AYC}}^{b}$            & 1.0   & m/s \\
+& Trolley travel speed $v_{\mathrm{AYC}}^{r}$           & 1.0   & m/s \\
+& Hoisting speed $v_{\mathrm{AYC}}^{h}$                 & 0.375 & m/s \\
+& Minimum safety separation $\Gamma_{\mathrm{AYC}}$     & 18    & m \\
+\midrule
+
+\multirow{3}{*}{Container}
+& Length in the bay direction $d_1$                     & 6.0  & m \\
+& Width in the row direction $d_2$                      & 2.5  & m \\
+& Height in the tier direction $d_3$                    & 2.53 & m \\
+\midrule
+
+\multirow{4}{*}{Train}
+& Maximum number of railcars per train $R_u^{\max}$     & 50 & -- \\
+& Train priority weight $\varphi_u$                     & 0.5 & -- \\
+& Time window of trains $u_1$ and $u_2$                 & $[0,\,10000]$ & s \\
+& Time window of trains $u_3$ and $u_4$                 & $[500,\,10500]$ & s \\
+\midrule
+
+Truck
+& Truck travel speed $v_{\mathrm{truck}}$               & 3.0 & m/s \\
+\midrule
+
+\multirow{2}{*}{Objective}
+& Train-completion weight $\lambda$                     & 0.4 & -- \\
+& Truck-waiting weight $1-\lambda$                      & 0.6 & -- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% % 中文：表中将强化学习、协同进化和规则学习设置统一列出。
+% \begin{table}[!t]
+% \centering
+% \footnotesize
+% \setlength{\tabcolsep}{3pt}
+% \caption{SAC training and co-evolutionary settings}
+% \label{tab:training_parameters}
+% \renewcommand{\arraystretch}{1.05}
+% \begin{tabularx}{\columnwidth}{
+% @{}
+% >{\centering\arraybackslash}p{2.2cm}
+% >{\raggedright\arraybackslash}X
+% >{\raggedleft\arraybackslash}p{1.6cm}
+% @{}}
+% \toprule
+% Category & Parameter & Value \\
+% \midrule
+
+% \multirow{5}{*}{SAC training}
+% & Reinforcement learning algorithm             & SAC \\
+% & Continuous preference parameters dimension         & 9 \\
+% & Learning rate                                & $1.0\times10^{-4}$ \\
+% & Batch size                                   & 256 \\
+% & Replay-buffer capacity                       & 20,000 \\
+% \midrule
+
+% \multirow{5}{*}{Co-evolution}
+% & Feedback rounds excluding Round~0            & 5 \\
+% & Initial training timesteps in Round~0        & 50,000 \\
+% & Training timesteps per feedback round        & 50,000 \\
+% & Collected scheduling episodes per round      & 50 \\
+% & Maximum steps per collected episode          & 800 \\
+% \bottomrule
+% \end{tabularx}
+% \end{table}
+
+\begin{table}[!t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Implementation and hyperparameter settings of the proposed method.}
+\label{tab:training_parameters}
+\renewcommand{\arraystretch}{1.05}
+
+\begin{tabularx}{\columnwidth}{
+@{}
+>{\centering\arraybackslash}p{2.3cm}
+>{\raggedright\arraybackslash}X
+>{\raggedleft\arraybackslash}p{1.5cm}
+@{}}
+
+\toprule
+Category & Parameter & Value\\
+\midrule
+
+\multirow{10}{*}{SAC training}
+& Algorithm & SAC\\
+& Policy network & MlpPolicy\\
+& Learning rate & $3\times10^{-4}$\\
+& Batch size & 256\\
+& Replay-buffer capacity & 100,000\\
+& Discount factor $\gamma$ & 0.99\\
+& Target update coefficient $\tau$ & 0.005\\
+%& Entropy coefficient $\alpha$ & Automatic tuning\\
+& Learning starts & 100 steps\\
+& Gradient steps & 1\\
+
+\midrule
+
+\multirow{6}{*}{Reward function}
+& Task completion reward $R_{\mathrm{task}}$ & 0.3\\
+& Truck-task bonus $R_{\mathrm{truck}}$ & 2.5\\
+& Step normalization coefficient $C_s$ & $15N_{\mathrm{task}}$\\
+& Transfer-point waiting penalty $\beta_B$ & 0.001\\
+& AYC waiting penalty $\beta_{AYC}$ & 0.003\\
+& Reward clipping range & $[-100,100]$\\
+
+\midrule
+
+\multirow{7}{*}{Hierarchical decoder}
+& Truck priority bias $\rho$ & 40\\
+& Completion-time weight $\lambda_f$ & 0.7\\
+& Imbalance weight $\lambda_I$ & 0.6\\
+& AYC waiting weight $\lambda_{AYC}^{w}$ & 2.5\\
+& Transfer-point waiting weight $\lambda_B^{w}$ & 1.5\\
+& Spatial coordination weight $\lambda_R$ & 0.8\\
+& Preference parameter dimension & 9\\
+
+\midrule
+
+\multirow{14}{*}{Rule evolution}
+& \multicolumn{2}{l}{Threshold quantiles:
+$\{0.3,0.4,0.5,0.6,0.7,0.8\}$}\\
+
+& \multicolumn{2}{l}{Prefer adjustment 
+$\Delta_q^{+}$:
+$\{30,50,70,90,120\}$}\\
+
+& \multicolumn{2}{l}{Avoid adjustment $\Delta_q^{-}$:
+$\{-30,-50,-70,-90,-120\}$}\\
+
+& {Min. support $\theta_{\mathrm{sup}}$} 
+&{20}\\
+
+& {Min. confidence $\theta_{\mathrm{conf}}$}
+&{0.75}\\
+
+& {Min. coverage $\theta_{\mathrm{cov}}$}
+&{0.002}\\
+
+& {Min. risk improvement $\varepsilon_{\mathrm{risk}}$}
+& {10.0}\\
+
+& \multicolumn{2}{l}{Risk weights 
+$\boldsymbol{\lambda}_{\mathrm{risk}}$:
+$(0.08,\,80.0,\,0.02,\,0.05,\,0.15)$}\\
+
+& {Catastrophic threshold$\tau_{\mathrm{cat}}$}
+& {1500.0}\\
+
+& {Max. completion drop $\tau_{\mathrm{comp}}$}
+& {0.01}\\
+
+& {Max. cross-scenario worsening $\tau_{\mathrm{cross}}$}
+& {30.0}\\
+
+& {Max. generated rules}
+& {120}\\
+
+& {Max. variants/template}
+& {80}\\
+
+\midrule
+
+\multirow{5}{*}{Co-evolution}
+& Feedback rounds excluding Round~0 & 5\\
+& Initial training timesteps in Round~0 & 50,000\\
+& Training timesteps per feedback round & 50,000\\
+& Collected scheduling episodes per round & 50\\
+& Maximum steps per collected episode & 800\\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% % 中文：表中列出分场景风险预算式贪心规则筛选的主要参数。
+% \begin{table}[!t]
+% \centering
+% \footnotesize
+% \setlength{\tabcolsep}{3pt}
+% \caption{Main parameters of risk-budgeted greedy rule selection}
+% \label{tab:risk_budget_parameters}
+% \renewcommand{\arraystretch}{1.05}
+% \begin{tabularx}{\columnwidth}{
+% @{}
+% >{\raggedright\arraybackslash}X
+% >{\centering\arraybackslash}p{1.8cm}
+% >{\raggedleft\arraybackslash}p{2.4cm}
+% @{}}
+% \toprule
+% Parameter & Symbol & Value \\
+% \midrule
+
+% Minimum risk-score improvement
+% & $\varepsilon_{\mathrm{risk}}$
+% & 10.0 \\
+
+% Risk-penalty weight vector
+% & $\boldsymbol{\lambda}_{\mathrm{risk}}$
+% & $(0.08,\,80.0,\,0.02,\,0.05,\,0.15)$ \\
+
+% CVaR tail fraction
+% & $\alpha$
+% & 0.25 \\
+
+% Catastrophic case-level worsening threshold
+% & $\tau_{\mathrm{cat}}$
+% & 1500.0 \\
+
+% Maximum completion-rate drop
+% & $\tau_{\mathrm{comp}}$
+% & 0.01 \\
+
+% Maximum mean worsening in a non-target scenario
+% & $\tau_{\mathrm{cross}}$
+% & 30.0 \\
+
+% \bottomrule
+% \end{tabularx}
+
+% \vspace{0.3em}
+% \begin{minipage}{\columnwidth}
+% \footnotesize
+% \textit{Note:}
+% The elements of $\boldsymbol{\lambda}_{\mathrm{risk}}$ correspond, in
+% order, to the penalties for CVaR tail degradation, the proportion of
+% worsened instances, maximum case-level deterioration, average
+% triggering strength, and high-strength trigger frequency.
+% \end{minipage}
+% \end{table}
+
+%实验配置扰动表格
+\begin{table}[!t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\caption{Disturbance configurations under different intensity levels.}
+\label{tab:disturbance_intensity}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\columnwidth}{
+@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\centering\arraybackslash}p{0.6cm}
+>{\centering\arraybackslash}p{0.6cm}
+>{\centering\arraybackslash}p{0.9cm}
+>{\centering\arraybackslash}p{0.6cm}
+>{\raggedright\arraybackslash}X
+@{}}
+\toprule
+Parameter & Clean & Low & Medium & High & Additional parameter \\
+\midrule
+
+AYC breakdown 
+& 0 & 0.05 & 0.15 & 0.25 
+& Repair duration: 180--300~s \\
+
+Train delay 
+& 0 & 0.10 & 0.25 & 0.40 
+& Delay duration: 200--500~s \\
+
+Task insertion 
+& 0 & 0.20 & 0.50 & 0.70 
+& Inserted tasks: 1--4 \\
+
+Task cancellation 
+& 0 & 0.15 & 0.35 & 0.50 
+& Cancelled tasks: 1--3 \\
+
+Task urgency escalation
+& 0 & 0.15 & 0.35 & 0.50 
+& Urgent tasks: 1--3 \\
+
+\bottomrule
+\end{tabularx}
+\par\vspace{0.4em}
+\begin{minipage}{\columnwidth}
+\footnotesize
+\textit{Note:} AYC breakdown and train delay are probabilities per AYC and per train per episode, respectively. Task insertion, task cancellation, and task urgency escalation are probabilities of triggering one batch of disturbances per episode.
+\end{minipage}
+\end{table}
